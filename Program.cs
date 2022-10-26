@@ -3,7 +3,6 @@ using ShapeTracker.Models;
 
 namespace ShapeTracker 
 {
-
   class Program
   {
     static void Main()
@@ -54,12 +53,37 @@ namespace ShapeTracker
     {
       string result = tri.CheckType();
       Console.WriteLine("Your result is: " + result + ".");
-      Console.WriteLine("Would you like to check a new triangle? Please enter 'yes' or 'no'.");
+      Console.WriteLine("What's next?");
+      Console.WriteLine("Would you like to check a new triangle (new)?");
+      Console.WriteLine("Or would you like to see all triangles (all)?"); 
+      Console.WriteLine("Please enter 'new' or 'all'. To exit, enter any key.");
       string userResponse = Console.ReadLine(); 
-      if (userResponse == "yes" || userResponse == "Yes")
+      if (userResponse == "new" || userResponse == "New")
       {
         Main();
       }
+      else if (userResponse == "all" || userResponse == "All")
+      {
+        SeeAllTriangles();
+      }
+      else
+      {
+        Console.WriteLine("Goodbye!");
+      }
+    }
+
+    static void SeeAllTriangles()
+    {
+      Console.WriteLine("Here are all of your triangles:");
+      foreach (Triangle tri in Triangle.GetAll())
+      {
+        Console.WriteLine("------------------------------------");
+        Console.WriteLine($"Side 1 has a length of {tri.Side1}.");
+        Console.WriteLine($"Side 2 has a length of {tri.Side2}.");
+        Console.WriteLine($"Side 3 has a length of {tri.Side3}.");
+      }
+      Console.WriteLine("------------------------------------");
+      Main();
     }
   }
 }
