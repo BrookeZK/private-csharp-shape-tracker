@@ -16,7 +16,7 @@ namespace ShapeTracker
       string userResponse = Console.ReadLine(); 
       if (userResponse == "triangle" || userResponse == "Triangle")
       {
-        Triangle();
+        Tri();
       }
       else if (userResponse == "rectangle" || userResponse == "Rectangle")
       {
@@ -53,9 +53,8 @@ namespace ShapeTracker
       }
     }
 
-    static void Triangle()
+    static void Tri()
     {
-      Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
       Console.WriteLine("We'll calculate what type of triangle you have based off of the lengths of the triangle's 3 sides.");
       Console.WriteLine("Please enter a number:");
       string stringNumber1 = Console.ReadLine();  
@@ -103,11 +102,11 @@ namespace ShapeTracker
       string result = tri.CheckType();
       Console.WriteLine("Your result is: " + result + ".");
       Console.WriteLine("What's next?");
-      Console.WriteLine("Would you like to see all of your triangles (all)?");
-      Console.WriteLine("Or would you like to return to the main menu (menu)?"); 
-      Console.WriteLine("Please enter 'all' or 'menu'. To exit, enter any key.");
+      Console.WriteLine("Would you like to check a new triangle (new)?");
+      Console.WriteLine("Or would you like to see all triangles (all)?"); 
+      Console.WriteLine("Please enter 'new' or 'all'. To exit, enter any key.");
       string userResponse = Console.ReadLine(); 
-      if (userResponse == "menu" || userResponse == "Menu")
+      if (userResponse == "new" || userResponse == "New")
       {
         Main();
       }
