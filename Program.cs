@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using ShapeTracker.Models;
 
 namespace ShapeTracker 
@@ -7,6 +8,8 @@ namespace ShapeTracker
   {
     static void Main()
     {
+      Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
+      Console.WriteLine("Welcome to the Shape Tracker app!");
       Console.WriteLine("We'll calculate what type of triangle you have based off of the lengths of the triangle's 3 sides.");
       Console.WriteLine("Please enter a number:");
       string stringNumber1 = Console.ReadLine();  
@@ -75,12 +78,14 @@ namespace ShapeTracker
     static void SeeAllTriangles()
     {
       Console.WriteLine("Here are all of your triangles:");
-      foreach (Triangle tri in Triangle.GetAll())
+      List<Triangle> allTriangles = Triangle.GetAll();
+      for (int index = 0; index < allTriangles.Count; index++)
       {
         Console.WriteLine("------------------------------------");
-        Console.WriteLine($"Side 1 has a length of {tri.Side1}.");
-        Console.WriteLine($"Side 2 has a length of {tri.Side2}.");
-        Console.WriteLine($"Side 3 has a length of {tri.Side3}.");
+        Console.WriteLine($"Triangle #{index + 1}");
+        Console.WriteLine($"Side 1 has a length of {allTriangles[index].Side1}.");
+        Console.WriteLine($"Side 2 has a length of {allTriangles[index].Side2}.");
+        Console.WriteLine($"Side 3 has a length of {allTriangles[index].Side3}.");
       }
       Console.WriteLine("------------------------------------");
       Main();
